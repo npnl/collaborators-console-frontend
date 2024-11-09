@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import CompleteSignIn from "./components/CompleteSignIn";
@@ -71,7 +71,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <Router>
+    <BrowserRouter basename="/collaborators-directory">
       <Navbar isAdmin={isAdmin} />
       <div className="container mt-4">
         <Routes>
@@ -82,7 +82,7 @@ const App: React.FC = () => {
           <Route path="/collaborators" element={<Collaborators />} />
         </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 };
 

@@ -7,7 +7,7 @@ import {
 } from "firebase/auth";
 
 const actionCodeSettings = {
-  url: window.location.origin + "/complete-sign-in",
+  url: window.location.origin + "/collaborators-directory/complete-sign-in",
   handleCodeInApp: true,
 };
 
