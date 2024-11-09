@@ -19,7 +19,7 @@ const Collaborators: React.FC = () => {
 
   const fetchCollaborators = async () => {
     if (!auth.currentUser) {
-      navigate("/login");
+      navigate("login");
       return;
     }
     const token = await getCurrentUserToken();

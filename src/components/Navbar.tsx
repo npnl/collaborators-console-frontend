@@ -13,7 +13,7 @@ const NavigationBar: React.FC<NavBarProps> = ({ isAdmin }) => {
 
   const handleLogout = async () => {
     await signOut(auth);
-    navigate("/login");
+    navigate("login");
   };
 
   useEffect(() => {

@@ -50,7 +50,7 @@ const Admins: React.FC = () => {
   };
   const handleDeleteAdmin = async (email: string) => {
     if (!getCurrentUser()) {
-      navigate("/login");
+      navigate("login");
       return;
     }
     const token = await getCurrentUserToken();

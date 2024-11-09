@@ -38,7 +38,13 @@ const Home: React.FC<HomeProps> = ({ isAdmin }) => {
 
   useEffect(() => {
     if (!auth.currentUser) {
-      navigate("/login");
+      navigate("login");
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!auth.currentUser) {
+      navigate("login");
     } else {
       fetchUserDetails();
     }
