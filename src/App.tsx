@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, BrowserRouter, useNavigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import CompleteSignIn from "./components/CompleteSignIn";
@@ -10,6 +10,21 @@ import { onAuthStateChanged, User } from "firebase/auth";
 import { auth } from "./firebaseConfig";
 import Home from "./components/Home";
 import axios from "axios";
+
+function RedirectHandler() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const redirect = params.get('redirect');
+
+    if (redirect) {
+      navigate(redirect, { replace: true });
+    }
+  }, [navigate]);
+
+  return null;
+}
 
 const App: React.FC = () => {
   const [user, setUser] = useState<User | null>(() => getCurrentUser());
@@ -69,9 +84,11 @@ const App: React.FC = () => {
 
     handleSignIn();
   }, []);
+  
 
   return (
     <BrowserRouter basename="/collaborators-directory">
+      <RedirectHandler />
       <Navbar isAdmin={isAdmin} />
       <div className="container mt-4">
         <Routes>

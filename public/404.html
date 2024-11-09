@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Page Not Found</title>
+    <script type="text/javascript">
+      // Check if the current URL includes the base path
+      var basePath = '/collaborators-directory';
+      var redirectTo = basePath + '/';
+      var url = window.location.pathname;
+
+      // Remove the base path from the URL
+      if (url.startsWith(basePath)) {
+        url = url.substring(basePath.length);
+      }
+
+      // Redirect to index.html with the original path preserved in the query string
+      window.location.replace(
+        redirectTo +
+          '?redirect=' +
+          encodeURIComponent(url + window.location.search + window.location.hash)
+      );
+    </script>
+  </head>
+  <body>
+    <h1>Page Not Found</h1>
+    <p>Redirecting...</p>
+  </body>
+</html>
