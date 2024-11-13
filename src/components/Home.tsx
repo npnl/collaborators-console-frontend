@@ -37,13 +37,17 @@ const Home: React.FC<HomeProps> = ({ isAdmin }) => {
   };
 
   useEffect(() => {
-    if (!auth.currentUser) {
+    const params = new URLSearchParams(window.location.search);
+    const redirect = params.get('redirect');
+    if (!auth.currentUser && !redirect) {
       navigate("login");
     }
   }, []);
 
   useEffect(() => {
-    if (!auth.currentUser) {
+    const params = new URLSearchParams(window.location.search);
+    const redirect = params.get('redirect');
+    if (!auth.currentUser && !redirect) {
       navigate("login");
     } else {
       fetchUserDetails();

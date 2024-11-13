@@ -7,11 +7,12 @@ import {
 } from "firebase/auth";
 
 const actionCodeSettings = {
-  url: window.location.origin + "/collaborators-directory/complete-sign-in",
+  url: window.location.origin + "/collaborators-directory?redirect=true",
   handleCodeInApp: true,
 };
 
 export const sendSignInEmail = async (email: string) => {
+  //console.log(actionCodeSettings)
   await sendSignInLinkToEmail(auth, email, actionCodeSettings);
   window.localStorage.setItem("emailForSignIn", email);
 };

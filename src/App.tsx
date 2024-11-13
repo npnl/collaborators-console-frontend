@@ -17,9 +17,9 @@ function RedirectHandler() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const redirect = params.get('redirect');
-
+    
     if (redirect) {
-      navigate(redirect, { replace: true });
+      navigate(`complete-sign-in?${params.toString()}`, { replace: true });
     }
   }, [navigate]);
 
