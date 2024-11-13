@@ -16,7 +16,7 @@ const Admins: React.FC = () => {
     const fetchAdmins = async () => {
       const token = await getCurrentUserToken();
       try {
-        const response = await axios.get(API_BASE_URL + "/get_admins/", {
+        const response = await axios.get(API_BASE_URL + "/get_admins", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
