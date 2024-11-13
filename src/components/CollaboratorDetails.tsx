@@ -48,7 +48,7 @@ const CollaboratorDetails: React.FC<CollaboratorDetailsProps> = ({
     const token = await getCurrentUserToken();
     try {
       await axios.post(
-        API_BASE_URL + "/delete_collaborator",
+        API_BASE_URL + "/delete_collaborator/",
         { email: localDataFrame.email },
         {
           headers: {

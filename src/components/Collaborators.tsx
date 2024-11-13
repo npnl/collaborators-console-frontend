@@ -25,7 +25,7 @@ const Collaborators: React.FC = () => {
     const token = await getCurrentUserToken();
     try {
       const response = await axios.get(
-        API_BASE_URL + "/get_all_collaborators",
+        API_BASE_URL + "/get_all_collaborators/",
         {
           headers: {
             Authorization: `Bearer ${token}`,

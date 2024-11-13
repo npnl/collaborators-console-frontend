@@ -21,7 +21,7 @@ const Home: React.FC<HomeProps> = ({ isAdmin }) => {
     const token = await getCurrentUserToken();
     if (token) {
       try {
-        const response = await axios.get(API_BASE_URL + "/get_user_details", {
+        const response = await axios.get(API_BASE_URL + "/get_user_details/", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
